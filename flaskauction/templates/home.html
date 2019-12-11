@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for auction in auctions %}
+        <article class="content-section">
+        <div class="content-body">
+        <div class="auction-metadata">
+          <a class="mr-2" href="#">{{ auction.auctioneer.username }}</a>
+        <small class="text-muted"> Auction Opened On {{ auction.date_posted.strftime('%Y-%m-%d') }}</small>
+        </div>
+        <h2><a class="auction-auction_name" href="{{ url_for('auction', auction_id=auction.id) }}">{{ auction.auction_name }}</a></h2>
+        <p class="auction-item">{{ auction.item }}</p>
+        </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
